@@ -1,0 +1,1067 @@
+{
+ "about": "Curated UE 5.8 MetaSound node-class catalog for keyword search. Ground truth is the live registry via resolve_node_class. verification.status: 'verified' = namespace/name/variant observed in engine source, a shipped engine asset's name table, or a live 5.8 editor; 'doc' = Epic docs/UI palette naming, class-name fields inferred; 'unverified' = model knowledge, confirm with resolve_node_class before relying on it.",
+ "nodes": [
+  {
+   "namespace": "UE",
+   "name": "Wave Player",
+   "variant": "Mono",
+   "display": "Wave Player (Mono)",
+   "category": "Sample Playback",
+   "keywords": [
+    "wave",
+    "sample",
+    "playback",
+    "play",
+    "sound file",
+    "loop",
+    "pitch shift",
+    "cue points"
+   ],
+   "summary": "Plays a WaveAsset. Inputs: Play, Stop, Wave Asset, Start Time, Pitch Shift (semitones), Loop, Loop Start, Loop Duration. Outputs: On Play, On Finished, On Nearly Finished, On Looped, On Cue Point, Out Mono. Speaker-layout variants Mono/Stereo/Quad/5.1/7.1 are what release notes called 'Wave Player 2.0'; there is no version-2 node.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Wave Player",
+   "variant": "Stereo",
+   "display": "Wave Player (Stereo)",
+   "category": "Sample Playback",
+   "keywords": [
+    "wave",
+    "sample",
+    "playback",
+    "play",
+    "stereo",
+    "loop"
+   ],
+   "summary": "Stereo Wave Player; as Mono variant but Out Left / Out Right audio outputs.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "Array",
+   "name": "Random Get",
+   "variant": "WaveAsset:Array",
+   "display": "Random Get (Array)",
+   "category": "Arrays",
+   "keywords": [
+    "random",
+    "array",
+    "pick",
+    "select",
+    "variation",
+    "round robin",
+    "no repeats"
+   ],
+   "summary": "Picks a random element from an array on Next trigger. Inputs: Next, Reset, In Array, Weights, Seed, No Repeats. Outputs: On Next, On Reset, Value. Typed per array data type (e.g. WaveAsset:Array). Namespace is Array, variant is the array data type (WaveAsset:Array verified; other element types follow the same pattern). Extra pins: Weights, Enable Shared State, constructor pin Shared State Behavior, Index output.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (class name corrected via asset name-table scan + targeted probe)",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Multiply",
+   "variant": "Audio by Float",
+   "display": "Multiply (Audio by Float)",
+   "category": "Math / Gain",
+   "keywords": [
+    "gain",
+    "volume",
+    "multiply",
+    "attenuate",
+    "scale",
+    "amplitude",
+    "vca"
+   ],
+   "summary": "Multiplies an audio buffer by a float. THE 5.8 gain idiom: there is no 'Gain (dB)' node; author gain in dB through 'Decibels to Linear Gain' into this node's float input.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Multiply",
+   "variant": "Float",
+   "display": "Multiply (Float)",
+   "category": "Math",
+   "keywords": [
+    "multiply",
+    "math",
+    "float",
+    "scale"
+   ],
+   "summary": "Float multiply. PrimaryOperand/AdditionalOperands pattern shared by the basic math nodes.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Add",
+   "variant": "Float",
+   "display": "Add (Float)",
+   "category": "Math",
+   "keywords": [
+    "add",
+    "sum",
+    "math",
+    "offset"
+   ],
+   "summary": "Float addition. Audio variant exists for summing buffers.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Add",
+   "variant": "Audio",
+   "display": "Add (Audio)",
+   "category": "Math / Mix",
+   "keywords": [
+    "add",
+    "sum",
+    "mix",
+    "audio",
+    "combine"
+   ],
+   "summary": "Sums audio buffers. For weighted mixes prefer a Mixer node.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Divide",
+   "variant": "Float",
+   "display": "Divide (Float)",
+   "category": "Math",
+   "keywords": [
+    "divide",
+    "math",
+    "ratio"
+   ],
+   "summary": "Float division.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "Clamp",
+   "name": "Clamp",
+   "variant": "Float",
+   "display": "Clamp (Float)",
+   "category": "Math",
+   "keywords": [
+    "clamp",
+    "limit",
+    "min",
+    "max",
+    "range"
+   ],
+   "summary": "Clamps a float between Min and Max.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 registry probe (headless add_node_by_class_name sweep, 2026-10-23 stretch sitting)",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Decibels to Linear Gain",
+   "variant": "Float",
+   "display": "Decibels to Linear Gain",
+   "category": "Math / Gain",
+   "keywords": [
+    "db",
+    "decibels",
+    "gain",
+    "volume",
+    "linear",
+    "convert",
+    "loudness"
+   ],
+   "summary": "Converts dB to linear gain (pins: Decibels in, Linear Gain out). Variant 'Float' is mandatory - the variant-less name does not resolve. Pair with Multiply (Audio by Float) to author volume in dB.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Linear Gain to Decibels",
+   "variant": "Float",
+   "display": "Linear Gain to Decibels",
+   "category": "Math / Gain",
+   "keywords": [
+    "db",
+    "decibels",
+    "gain",
+    "convert",
+    "metering"
+   ],
+   "summary": "Converts linear gain to dB.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (variant corrected from '')",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Delay Pitch Shift",
+   "variant": "Audio",
+   "display": "Delay Pitch Shift",
+   "category": "Effects",
+   "keywords": [
+    "pitch",
+    "shift",
+    "semitones",
+    "transpose",
+    "doppler"
+   ],
+   "summary": "Delay-based (doppler) pitch shifter for audio; the node the editor palette shows as Pitch Shift.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 registry probe (headless add_node_by_class_name sweep, 2026-10-23 stretch sitting); the palette's 'Pitch Shift' resolves as 'Delay Pitch Shift'",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "MapRange",
+   "name": "MapRange",
+   "variant": "Float",
+   "display": "Map Range (Float)",
+   "category": "Math",
+   "keywords": [
+    "map",
+    "range",
+    "remap",
+    "scale",
+    "normalize",
+    "lerp"
+   ],
+   "summary": "Remaps a float from an input range to an output range. Int32 and Audio variants exist (earlier doc-era claims that Map Range was missing are wrong).",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 registry probe (headless add_node_by_class_name sweep, 2026-10-23 stretch sitting); Audio and Int32 variants also registered",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "AudioMixer",
+   "name": "Audio Mixer (Mono, 2)",
+   "variant": "",
+   "display": "Mono Mixer (2)",
+   "category": "Mix",
+   "keywords": [
+    "mix",
+    "mixer",
+    "mono",
+    "fold down",
+    "downmix",
+    "combine"
+   ],
+   "summary": "Mixes 2 mono inputs with gains. Larger input-count variants exist. Used as the stereo-to-mono folddown after CAT Break (the Granulator cannot render mono). Namespace AudioMixer; the parenthesized display IS the class name. Pins: In 0, Gain 0, In 1, Gain 1 -> Out.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (class name corrected via asset name-table scan + targeted probe)",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "AudioMixer",
+   "name": "Audio Mixer (Stereo, 2)",
+   "variant": "",
+   "display": "Stereo Mixer (2)",
+   "category": "Mix",
+   "keywords": [
+    "mix",
+    "mixer",
+    "stereo",
+    "combine",
+    "bus"
+   ],
+   "summary": "Mixes 2 stereo inputs with gains; larger variants exist. Namespace AudioMixer; class name carries layout and count. Pins: In 0 L/R, Gain 0, In 1 L/R, Gain 1 -> Out L/R.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (class name corrected via asset name-table scan + targeted probe)",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Stereo Panner",
+   "variant": "",
+   "display": "Stereo Panner",
+   "category": "Spatial",
+   "keywords": [
+    "pan",
+    "panner",
+    "stereo",
+    "position",
+    "balance"
+   ],
+   "summary": "Pans a mono input across a stereo pair.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Sine",
+   "variant": "Audio",
+   "display": "Sine (Audio)",
+   "category": "Generators",
+   "keywords": [
+    "sine",
+    "oscillator",
+    "tone",
+    "test tone",
+    "beep",
+    "generator",
+    "osc"
+   ],
+   "summary": "Sine oscillator with Frequency, Modulation, Sync. Registered as the Audio variant only; there is no Sine Float variant. For a block-rate control signal use LFO (namespace UE, name LFO, variant Audio), whose output pin is Float: a class variant does not always name its output's data type, so match pin data types or the wire is refused.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Saw",
+   "variant": "Audio",
+   "display": "Saw (Audio)",
+   "category": "Generators",
+   "keywords": [
+    "saw",
+    "sawtooth",
+    "oscillator",
+    "generator"
+   ],
+   "summary": "Sawtooth oscillator.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Square",
+   "variant": "Audio",
+   "display": "Square (Audio)",
+   "category": "Generators",
+   "keywords": [
+    "square",
+    "pulse",
+    "oscillator",
+    "generator"
+   ],
+   "summary": "Square/pulse oscillator.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Triangle",
+   "variant": "Audio",
+   "display": "Triangle (Audio)",
+   "category": "Generators",
+   "keywords": [
+    "triangle",
+    "oscillator",
+    "generator"
+   ],
+   "summary": "Triangle oscillator.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Noise",
+   "variant": "Audio",
+   "display": "Noise",
+   "category": "Generators",
+   "keywords": [
+    "noise",
+    "white",
+    "pink",
+    "generator",
+    "wind",
+    "texture"
+   ],
+   "summary": "Noise generator (white/pink type selector).",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "AD Envelope",
+   "name": "AD Envelope",
+   "variant": "Audio",
+   "display": "AD Envelope (Audio)",
+   "category": "Envelopes",
+   "keywords": [
+    "envelope",
+    "attack",
+    "decay",
+    "ad",
+    "percussive",
+    "transient"
+   ],
+   "summary": "Attack/Decay envelope with an audio-rate output. Inputs: Trigger, Attack Time, Decay Time, Attack Curve, Decay Curve, Looping, Hard Reset. Outputs: On Trigger, On Done, Out Envelope. The namespace repeats the name; 'UE' is not registered.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.4 resolve_node_class + end-to-end render (2026-11-02)",
+    "date": "2026-11-02"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "AD Envelope",
+   "name": "AD Envelope",
+   "variant": "Float",
+   "display": "AD Envelope (Float)",
+   "category": "Envelopes",
+   "keywords": [
+    "envelope",
+    "attack",
+    "decay",
+    "ad",
+    "percussive",
+    "transient",
+    "control rate"
+   ],
+   "summary": "Attack/Decay envelope with a block-rate Float output, for driving parameters. Same pins as the Audio variant. The namespace repeats the name; 'UE' is not registered.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.4 resolve_node_class (2026-11-02)",
+    "date": "2026-11-02"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "ADSR Envelope",
+   "name": "ADSR Envelope",
+   "variant": "Audio",
+   "display": "ADSR Envelope (Audio)",
+   "category": "Envelopes",
+   "keywords": [
+    "envelope",
+    "adsr",
+    "attack",
+    "decay",
+    "sustain",
+    "release"
+   ],
+   "summary": "ADSR envelope with an audio-rate output and separate Trigger Attack / Trigger Release inputs. Inputs also: Attack Time, Decay Time, Sustain Level, Release Time, Attack/Decay/Release Curve, Hard Reset. Outputs: On Attack/Decay/Sustain/Release Triggered, On Done, Out Envelope. The namespace repeats the name; 'UE' is not registered.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.4 resolve_node_class (2026-11-02)",
+    "date": "2026-11-02"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "ADSR Envelope",
+   "name": "ADSR Envelope",
+   "variant": "Float",
+   "display": "ADSR Envelope (Float)",
+   "category": "Envelopes",
+   "keywords": [
+    "envelope",
+    "adsr",
+    "attack",
+    "decay",
+    "sustain",
+    "release",
+    "control rate"
+   ],
+   "summary": "ADSR envelope with a block-rate Float output, for driving parameters. Same pins as the Audio variant. The namespace repeats the name; 'UE' is not registered.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.4 resolve_node_class + end-to-end render (2026-11-02)",
+    "date": "2026-11-02"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "InterpTo",
+   "variant": "Audio",
+   "display": "InterpTo (Float)",
+   "category": "Math / Smoothing",
+   "keywords": [
+    "interpolate",
+    "smooth",
+    "glide",
+    "slew",
+    "lag",
+    "parameter smoothing"
+   ],
+   "summary": "Smooths a float toward a target over Interp Time; the standard param-smoothing idiom for de-zippering live parameter changes.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (variant corrected from 'Float')",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Delay",
+   "variant": "Audio",
+   "display": "Delay (Audio)",
+   "category": "Effects",
+   "keywords": [
+    "delay",
+    "echo",
+    "feedback",
+    "slapback"
+   ],
+   "summary": "Audio delay with Delay Time, Dry/Wet, Feedback. Stereo Delay variant exists.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (variant corrected from '')",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Trigger Delay",
+   "variant": "",
+   "display": "Trigger Delay",
+   "category": "Triggers",
+   "keywords": [
+    "trigger",
+    "delay",
+    "timing",
+    "schedule"
+   ],
+   "summary": "Delays a trigger by seconds; Reset cancels pending.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "TriggerRepeat",
+   "variant": "",
+   "display": "Trigger Repeat",
+   "category": "Triggers",
+   "keywords": [
+    "trigger",
+    "repeat",
+    "loop",
+    "metronome",
+    "retrigger",
+    "interval"
+   ],
+   "summary": "Emits triggers at a period while running: the loop/retrigger workhorse (Start/Stop, Period). Registered name is CamelCase TriggerRepeat (no space). Pins: Start, Stop, Period (Time), Num Repeats -> RepeatOut.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (class name corrected via asset name-table scan + targeted probe)",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Trigger Counter",
+   "variant": "",
+   "display": "Trigger Counter",
+   "category": "Triggers",
+   "keywords": [
+    "trigger",
+    "count",
+    "counter",
+    "sequence",
+    "step"
+   ],
+   "summary": "Counts incoming triggers, with wrap/reset; drives step sequencing.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Trigger Once",
+   "variant": "",
+   "display": "Trigger Once",
+   "category": "Triggers",
+   "keywords": [
+    "trigger",
+    "once",
+    "gate",
+    "first"
+   ],
+   "summary": "Passes only the first trigger until reset.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "TriggerAny",
+   "name": "Trigger Any (2)",
+   "variant": "",
+   "display": "Trigger Any (2)",
+   "category": "Triggers",
+   "keywords": [
+    "trigger",
+    "any",
+    "or",
+    "merge"
+   ],
+   "summary": "Fires when any input trigger fires; variants by input count.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 registry probe (headless add_node_by_class_name sweep, 2026-10-23 stretch sitting); counts live in the NAME - Trigger Any (3) and (8) also confirmed",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "TriggerRoute",
+   "name": "Trigger Route (Float, 2)",
+   "variant": "Float",
+   "display": "Trigger Route (2)",
+   "category": "Triggers",
+   "keywords": [
+    "trigger",
+    "route",
+    "switch",
+    "select",
+    "gate"
+   ],
+   "summary": "Routes a value selected by the most recent trigger; variants by input count and type.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 registry probe (headless add_node_by_class_name sweep, 2026-10-23 stretch sitting); the data type appears in BOTH the name and the variant - Trigger Route (Audio, 2)/Audio also confirmed",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "Crossfade",
+   "name": "Trigger Route (Audio, 2)",
+   "variant": "Audio",
+   "display": "Crossfade (Audio, 2)",
+   "category": "Mix",
+   "keywords": [
+    "crossfade",
+    "blend",
+    "morph",
+    "transition"
+   ],
+   "summary": "Crossfades Audio inputs by a Float 'Crossfade Value' (0 = In 0, 1 = In 1). NOT a router: 'Trigger Route' in the class name is an engine copy-paste quirk, the namespace 'Crossfade' is what identifies it. Registered for 2 to 8 inputs: name 'Trigger Route (Audio, N)', pins In 0 to In N-1.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.4 resolve_node_class for N=2..8 + end-to-end render (2026-11-02)",
+    "date": "2026-11-02"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "Crossfade",
+   "name": "Trigger Route (Float, 2)",
+   "variant": "Float",
+   "display": "Crossfade (Float, 2)",
+   "category": "Mix",
+   "keywords": [
+    "crossfade",
+    "blend",
+    "morph",
+    "transition",
+    "control rate"
+   ],
+   "summary": "Crossfades Float inputs by a Float 'Crossfade Value' (0 = In 0, 1 = In 1). NOT a router: 'Trigger Route' in the class name is an engine copy-paste quirk, the namespace 'Crossfade' is what identifies it. Registered for 2 to 8 inputs: name 'Trigger Route (Float, N)', pins In 0 to In N-1.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.4 resolve_node_class for N=2..8 (2026-11-02)",
+    "date": "2026-11-02"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "RandomFloat",
+   "variant": "",
+   "display": "Random (Float)",
+   "category": "Generators / Variation",
+   "keywords": [
+    "random",
+    "variation",
+    "range",
+    "humanize",
+    "spread"
+   ],
+   "summary": "Random float in [Min, Max] on trigger, with Seed. Int32 variant exists. For picking from arrays use Random Get. Registered name is RandomFloat with empty variant (not Random + Float variant). Pins: Next, Reset, Seed, Min, Max -> On Next, On Reset, Value.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (class name corrected via asset name-table scan + targeted probe)",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "Array",
+   "name": "Subset",
+   "variant": "WaveAsset:Array",
+   "display": "Subset (Array)",
+   "category": "Arrays",
+   "keywords": [
+    "array",
+    "subset",
+    "slice",
+    "range"
+   ],
+   "summary": "Returns array[Start..End]. GOTCHA (verified 2026-08): End Index is INCLUSIVE and the node only computes when its Trigger fires - an unwired Trigger means a permanently empty output and a silent Random Get downstream. Namespace is Array, variant is the array data type. Pins: Trigger, Array, Start Index, End Index -> Array.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (class name corrected via asset name-table scan + targeted probe)",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "One-Pole Low Pass Filter",
+   "variant": "Audio",
+   "display": "One-Pole Low Pass Filter",
+   "category": "Filters",
+   "keywords": [
+    "filter",
+    "low pass",
+    "lpf",
+    "tone",
+    "darken"
+   ],
+   "summary": "Cheap 6 dB/oct low pass.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "State Variable Filter",
+   "variant": "Audio",
+   "display": "State Variable Filter",
+   "category": "Filters",
+   "keywords": [
+    "filter",
+    "svf",
+    "low pass",
+    "high pass",
+    "band pass",
+    "resonance"
+   ],
+   "summary": "Multi-mode filter with simultaneous LP/HP/BP/notch outputs.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (variant corrected from '')",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Ladder Filter",
+   "variant": "Audio",
+   "display": "Ladder Filter",
+   "category": "Filters",
+   "keywords": [
+    "filter",
+    "ladder",
+    "moog",
+    "resonance",
+    "synth"
+   ],
+   "summary": "Resonant ladder low pass.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (variant corrected from '')",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Biquad Filter",
+   "variant": "Audio",
+   "display": "Biquad Filter",
+   "category": "Filters",
+   "keywords": [
+    "filter",
+    "biquad",
+    "eq",
+    "parametric",
+    "shelf"
+   ],
+   "summary": "General biquad with type selector.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 registry probe (headless add_node_by_class_name sweep, 2026-10-23 stretch sitting); registered at MAJOR VERSION 2 - add_node/resolve_node_class need major_version=2",
+    "date": "2026-10-23"
+   },
+   "major_version": 2
+  },
+  {
+   "namespace": "UE",
+   "name": "Compressor",
+   "variant": "Audio",
+   "display": "Compressor",
+   "category": "Dynamics",
+   "keywords": [
+    "compressor",
+    "dynamics",
+    "ratio",
+    "threshold",
+    "sidechain",
+    "ducking"
+   ],
+   "summary": "Compressor with threshold/ratio/attack/release and sidechain input.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (variant corrected from '')",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Limiter",
+   "variant": "Audio",
+   "display": "Limiter",
+   "category": "Dynamics",
+   "keywords": [
+    "limiter",
+    "dynamics",
+    "ceiling",
+    "clip protection"
+   ],
+   "summary": "Output limiter.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (variant corrected from '')",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Granulator",
+   "variant": "",
+   "display": "Granulator (Grain Player)",
+   "category": "Generators / Experimental",
+   "keywords": [
+    "grain",
+    "granular",
+    "granulator",
+    "texture",
+    "scrub"
+   ],
+   "summary": "Release notes call it 'Grain Player'; palette name is Granulator, behind the disabled MetasoundExperimental plugin. GOTCHAS (verified 2026-08): outputs CAT-typed pins - exit to classic Audio pins ONLY via CAT Break Node, set every CAT node's format BY HAND before wiring (mismatch asserts the AudioMixer thread at audition), and it cannot render mono - configure Stereo and fold down with Mono Mixer (2).",
+   "verification": {
+    "status": "unverified",
+    "source": "absent from the live 5.8.3 registry with the experimental MetaSound plugins disabled (expected); not reachable until that plugin set is enabled - class name still unverified",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "CAT Break",
+   "variant": "",
+   "display": "CAT Break Node",
+   "category": "Experimental / Channel-Agnostic",
+   "keywords": [
+    "cat",
+    "channel agnostic",
+    "break",
+    "convert",
+    "granulator"
+   ],
+   "summary": "The only exit from CAT (channel-agnostic type) pins back to classic Audio pins. Set its format to match the upstream CAT node before wiring.",
+   "verification": {
+    "status": "unverified",
+    "source": "absent from the live 5.8.3 registry with the experimental MetaSound plugins disabled (expected); not reachable until that plugin set is enabled - class name still unverified",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "BPMToSeconds",
+   "variant": "",
+   "display": "BPM To Seconds",
+   "category": "Music / Timing",
+   "keywords": [
+    "bpm",
+    "tempo",
+    "seconds",
+    "music",
+    "beat",
+    "sync"
+   ],
+   "summary": "Converts BPM + divisor to seconds for tempo-synced delays/repeats. Registered name is CamelCase BPMToSeconds. Pins: BPM, Beat Multiplier, Divisions of Whole Note -> Seconds (Time).",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 resolve_node_class (class name corrected via asset name-table scan + targeted probe)",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Get Wave Duration",
+   "variant": " ",
+   "display": "Get Wave Info",
+   "category": "Sample Playback",
+   "keywords": [
+    "duration",
+    "length",
+    "wave",
+    "time",
+    "info",
+    "name",
+    "path"
+   ],
+   "summary": "Reads a WaveAsset's Duration (Time), Name and Path (String). The variant is a SINGLE SPACE, not empty: pass ' ' exactly; '' is not registered. The palette calls this Get Wave Info.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.4 resolve_node_class + end-to-end render + disk round-trip (2026-11-02)",
+    "date": "2026-11-02"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Reroute",
+   "variant": "",
+   "display": "Reroute (template node)",
+   "category": "Organization",
+   "keywords": [
+    "reroute",
+    "organize",
+    "tidy",
+    "wire"
+   ],
+   "summary": "Visual wire reroute. Template node: NOT addable through the Builder API (Blueprint/Python cannot add template nodes); editor-only organization.",
+   "verification": {
+    "status": "verified",
+    "source": "MSS_PlayRandom_Oneshot name table + Builder API docs (template-node limitation); live 5.8.3 probe correctly refuses it (template nodes are not Builder-addable)",
+    "date": "2026-10-23"
+   },
+   "major_version": 1
+  },
+  {
+   "namespace": "UE",
+   "name": "Stereo Delay",
+   "variant": "Audio",
+   "display": "Stereo Delay",
+   "category": "Delays",
+   "major_version": 1,
+   "keywords": [
+    "delay",
+    "stereo",
+    "echo",
+    "ping pong",
+    "feedback"
+   ],
+   "summary": "Stereo delay with delay mode, time, feedback and wet/dry.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 registry probe (headless add_node_by_class_name sweep, 2026-10-23 stretch sitting)",
+    "date": "2026-10-23"
+   }
+  },
+  {
+   "namespace": "UE",
+   "name": "Trigger Sequence (2)",
+   "variant": "",
+   "display": "Trigger Sequence (2)",
+   "category": "Triggers",
+   "major_version": 1,
+   "keywords": [
+    "trigger",
+    "sequence",
+    "round robin",
+    "step",
+    "cycle"
+   ],
+   "summary": "Routes an input trigger to outputs in sequence (round robin); variants by output count live in the name.",
+   "verification": {
+    "status": "verified",
+    "source": "live 5.8.3 registry probe (headless add_node_by_class_name sweep, 2026-10-23 stretch sitting)",
+    "date": "2026-10-23"
+   }
+  }
+ ]
+}

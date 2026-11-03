@@ -1,0 +1,33 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.1.0",
+	"FriendlyName": "MetaSoundTools",
+	"Description": "Sound-designer-grade MetaSounds tools for Unreal's in-editor MCP: the audition loop (build, hear, tweak, stop), MetaSound Builder authoring, one-call graph templates, and verified node-class lookup. Registers Python ToolsetDefinitions with the Toolset Registry.",
+	"Category": "Audio",
+	"CreatedBy": "Dean Cristofori",
+	"CreatedByURL": "https://github.com/Nexus-nimdA",
+	"DocsURL": "https://github.com/Nexus-nimdA/MetaSoundTools",
+	"MarketplaceURL": "",
+	"SupportURL": "https://github.com/Nexus-nimdA/MetaSoundTools/issues",
+	"EngineVersion": "5.8.0",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": true,
+	"Installed": false,
+	"EnabledByDefault": true,
+	"Plugins": [
+		{
+			"Name": "ToolsetRegistry",
+			"Enabled": true
+		},
+		{
+			"Name": "Metasound",
+			"Enabled": true
+		},
+		{
+			"Name": "PythonScriptPlugin",
+			"Enabled": true
+		}
+	]
+}

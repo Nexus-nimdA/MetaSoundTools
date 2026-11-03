@@ -1,0 +1,8 @@
+# Python
+__pycache__/
+*.pyc
+
+# Unreal, if this plugin is ever built inside a project
+Binaries/
+Intermediate/
+Saved/
